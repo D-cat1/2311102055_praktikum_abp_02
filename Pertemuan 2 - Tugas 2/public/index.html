@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sistem pengelolaan data penerima manfaat program Makan Bergizi Gratis (MBG)" />
+  <title>Data Penerima Manfaat — Makan Begiji Gratis</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://cdn.datatables.net/2.3.2/css/dataTables.bootstrap5.css" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+    <div class="container">
+      <a href="/" class="navbar-brand fw-bold text-primary d-flex align-items-center gap-2">
+        <i class="bi bi-egg-fried fs-4"></i>
+        EEMBEGE
+      </a>
+      <div class="d-flex align-items-center gap-3">
+        <span
+          class="badge bg-primary-subtle text-primary-emphasis rounded-pill px-3 py-2 d-none d-md-inline-flex align-items-center gap-1">
+          <i class="bi bi-people-fill"></i>
+          <span id="navTotal">0</span> Penerima
+        </span>
+        <a href="/tambah" class="btn btn-primary d-flex align-items-center gap-2">
+          <i class="bi bi-plus-lg"></i>
+          Tambah Data
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="py-4">
+    <div class="container">
+
+      <div class="card border-0 shadow-sm mb-4">
+        <div class="card-body p-4">
+          <div class="d-flex flex-column flex-lg-row gap-3 align-items-lg-center justify-content-between">
+            <div>
+
+              <h1 class="h3 fw-bold mb-1">Data Penerima Manfaat</h1>
+              <p class="text-body-secondary mb-0">
+                Kelola data penerima manfaat program Makan Bergizi Gratis.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3 mb-4">
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="bg-primary-subtle text-primary rounded-3 d-flex align-items-center justify-content-center"
+                style="width:48px;height:48px">
+                <i class="bi bi-people-fill fs-5"></i>
+              </div>
+              <div>
+                <div class="h4 fw-bold mb-0" id="statTotal">0</div>
+                <small class="text-body-secondary">Total Penerima</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div class="bg-info-subtle text-info-emphasis rounded-3 d-flex align-items-center justify-content-center"
+                style="width:48px;height:48px">
+                <i class="bi bi-gender-male fs-5"></i>
+              </div>
+              <div>
+                <div class="h4 fw-bold mb-0" id="statLaki">0</div>
+                <small class="text-body-secondary">Laki-laki</small>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card border-0 shadow-sm h-100">
+            <div class="card-body d-flex align-items-center gap-3">
+              <div
+                class="bg-danger-subtle text-danger-emphasis rounded-3 d-flex align-items-center justify-content-center"
+                style="width:48px;height:48px">
+                <i class="bi bi-gender-female fs-5"></i>
+              </div>
+              <div>
+                <div class="h4 fw-bold mb-0" id="statPerempuan">0</div>
+                <small class="text-body-secondary">Perempuan</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-white py-3">
+          <h5 class="card-title mb-0 fw-bold d-flex align-items-center gap-2">
+            <i class="bi bi-table text-primary"></i>
+            Daftar Penerima Manfaat
+          </h5>
+        </div>
+        <div class="card-body">
+          <div id="alertContainer"></div>
+          <div class="table-responsive">
+            <table id="penerimaTable" class="table table-striped table-hover align-middle w-100">
+              <thead class="table-light">
+                <tr>
+                  <th class="text-center" style="width:50px">No</th>
+                  <th>Nama Lengkap</th>
+                  <th>Alamat</th>
+                  <th>Jenis Kelamin</th>
+                  <th>Alergi</th>
+                  <th>Sekolah</th>
+                  <th class="text-center">Aksi</th>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  
+  <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title fw-bold">
+            <i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>
+            Konfirmasi Hapus
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <p class="mb-1">Apakah Anda yakin ingin menghapus data ini?</p>
+          <p class="mb-0 text-body-secondary small">Data yang dihapus tidak dapat dikembalikan.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" id="confirmDeleteButton" class="btn btn-danger d-flex align-items-center gap-1">
+            
+            Hapus
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
+  <script src="https://cdn.datatables.net/2.3.2/js/dataTables.bootstrap5.js"></script>
+  <script src="/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,22 @@
+{
+  "name": "simple-crud-mbg",
+  "version": "1.0.0",
+  "description": "Simple CRUD Data Penerima Manfaat MBG dengan Express, Bootstrap 5, AJAX, dan DataTables",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "express",
+    "crud",
+    "bootstrap",
+    "datatable",
+    "ajax"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "better-sqlite3": "^12.6.2",
+    "express": "^4.21.2"
+  }
+}
