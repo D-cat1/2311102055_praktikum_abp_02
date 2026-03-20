@@ -139,16 +139,11 @@ CREATE TABLE penerima_manfaat (
 
 ## 🧑‍💻 Fitur Utama
 
-- ✅ CRUD lengkap dengan validasi server-side & client-side
-- ✅ DataTables server-side processing (search, sort, pagination)
-- ✅ Statistik real-time (total, laki-laki, perempuan)
-- ✅ Select2 autocomplete untuk input alergi
-- ✅ Konfirmasi hapus dengan modal Bootstrap
-- ✅ Responsive design (mobile-friendly)
-- ✅ UUID sebagai primary key
+- CRUD lengkap dengan validasi server-side & client-side
+- DataTables server-side processing (search, sort, pagination)
+- Statistik real-time (total, laki-laki, perempuan)
+- Select2 autocomplete untuk input alergi
+- Konfirmasi hapus dengan modal Bootstrap
+- Responsive design (mobile-friendly)
+- UUID sebagai primary key
 
----
-
-## 📄 Lisensi
-
-Proyek ini menggunakan lisensi [MIT](https://opensource.org/licenses/MIT).
