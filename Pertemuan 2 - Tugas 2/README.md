@@ -106,10 +106,10 @@ Server akan berjalan di **http://127.0.0.1:3000**
 
 ---
 
-## 📽️ Video Demo
+## 📽️ Video Presentasi dan Demo
 
 <a href="https://drive.google.com/file/d/1YfbK9_iLRSveCTP3c92de8bP_GncsHy6/view">
-  <img src="https://img.shields.io/badge/▶_Tonton_Video_Demo-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="Video Demo" />
+  <img src="https://img.shields.io/badge/▶_Tonton_Video_Demo-Google_Drive-4285F4?style=for-the-badge&logo=googledrive&logoColor=white" alt="Video Presentasi dan Demo" />
 </a>
 
 ---
