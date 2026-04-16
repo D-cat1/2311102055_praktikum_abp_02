@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil dengan AJAX</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        button {
+            background-color: green;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: rgb(66, 167, 66);
+        }
+
+        #hasil-profil {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+            min-height: 25px;
+
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Data Profil</h2>
+        <button id="btn-tampil">Tampilkan Profil</button>
+        <div id="hasil-profil"></div>
+    </div>
+
+    <script>
+        document.getElementById('btn-tampil').addEventListener('click', function () {
+            fetch('data.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Jaringan bermasalah atau file tidak ditemukan');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const hasilDiv = document.getElementById('hasil-profil');
+                    hasilDiv.innerHTML = `Nama: ${data.nama} | Pekerjaan: ${data.pekerjaan} | Lokasi: ${data.lokasi}`;
+                })
+                .catch(error => {
+                    console.error('Ada masalah dengan fetch operation:', error);
+                    document.getElementById('hasil-profil').innerHTML = 'Gagal mengambil data.';
+                });
+        });
+    </script>
+</body>
+
+</html>
