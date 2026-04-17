@@ -57,23 +57,23 @@
         <div id="hasil-profil"></div>
     </div>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script>
-        document.getElementById('btn-tampil').addEventListener('click', function () {
-            fetch('data.php')
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error('Jaringan bermasalah atau file tidak ditemukan');
+        $(document).ready(function () {
+            $('#btn-tampil').click(function () {
+                $.ajax({
+                    url: 'data.php',
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function (data) {
+                        $('#hasil-profil').html(`Nama: ${data.nama} | Pekerjaan: ${data.pekerjaan} | Lokasi: ${data.lokasi}`);
+                    },
+                    error: function (xhr, status, error) {
+                        console.error('Ada masalah dengan AJAX operation:', error);
+                        $('#hasil-profil').html('Gagal mengambil data.');
                     }
-                    return response.json();
-                })
-                .then(data => {
-                    const hasilDiv = document.getElementById('hasil-profil');
-                    hasilDiv.innerHTML = `Nama: ${data.nama} | Pekerjaan: ${data.pekerjaan} | Lokasi: ${data.lokasi}`;
-                })
-                .catch(error => {
-                    console.error('Ada masalah dengan fetch operation:', error);
-                    document.getElementById('hasil-profil').innerHTML = 'Gagal mengambil data.';
                 });
+            });
         });
     </script>
 </body>
