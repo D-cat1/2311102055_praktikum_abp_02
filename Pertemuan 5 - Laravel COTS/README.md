@@ -1,4 +1,4 @@
-# COTS Laravel - Sistem Manajemen Produk
+# COTS Laravel - Sistem Inventori Produk
 
 Aplikasi web manajemen produk berbasis **Laravel 13** dengan antarmuka reaktif menggunakan **Livewire 4** dan komponen UI dari **Flux UI**. Dibangun sebagai proyek tugas mata kuliah ABP (Splikasi Berbasis Platform).
 
